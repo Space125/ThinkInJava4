@@ -8,14 +8,12 @@ import innerclass.task06.interfacepackage.SimpleInterface;
  */
 
 public class SimpleClass {
-    private class Inner implements SimpleInterface{
+    protected class Inner implements SimpleInterface{
+        public Inner(){} // Default constructor
+
         @Override
         public void simpleMethod() {
             System.out.println("Hi Inner class");
         }
-
-    }
-    public SimpleInterface simpleInterface(){
-        return new Inner();
     }
 }
