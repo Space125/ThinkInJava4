@@ -11,27 +11,29 @@ public class Solution implements Action {
     private Action solutionAction = new Action() {
         //!!!!! Изменения могут быть тут
 
+
         public void someAction() {
             //!!!!! Все изменения должны быть только тут
+            FirstClass firstClass;
+            SecondClass secondClass = new SecondClass();
             if (param > 0) {
-                new FirstClass() {
+                firstClass = new FirstClass() {
                     @Override
                     public Action getDependantAction() {
-                        while (param > 0){
-                            System.out.println(param--);
-                        }
+                        while (param > 0) System.out.println(param--);
                         super.someAction();
-                        return null;
+                        // остался вопрос по жтой части, тут сделать так как сейчас
+                        // или записать так return null;
+                        return new Action() {
+                            public void someAction() {
+                            }
+                        };
 
                     }
-                }.getDependantAction();
-
-            }else new SecondClass(){
-                @Override
-                public void someAction() {
-                    System.out.println(sb.toString());
-                }
-            }.someAction();
+                };
+                firstClass.getDependantAction();
+            }
+            secondClass.someAction();
             System.out.println(SecondClass.SPECIFIC_ACTION_FOR_ANONYMOUS_SECOND_CLASS_PARAM.substring(1) + param);
         }
     };
