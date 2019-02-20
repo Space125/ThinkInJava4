@@ -22,7 +22,7 @@ public class Solution implements Action {
                     public Action getDependantAction() {
                         while (param > 0) System.out.println(param--);
                         super.someAction();
-                        // остался вопрос по жтой части, тут сделать так как сейчас
+                        // остался вопрос по этой части, тут сделать так как сейчас
                         // или записать так return null;
                         return new Action() {
                             public void someAction() {
